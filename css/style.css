@@ -1,0 +1,287 @@
+/* Estilos Gerais */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+h1, h2 {
+  text-align: center;
+  color: var(--primary-color, #333); /* Cor padrão */
+  transition: color 0.3s ease;
+}
+
+/* Estilos do Formulário */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--primary-color, #5cb85c); /* Cor padrão */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  opacity: 0.9;
+}
+
+/* Seleção de Avatar */
+.avatar-selection {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.avatar-option {
+  text-align: center;
+  cursor: pointer;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+.avatar-option img {
+  width: 80px; /* Ajuste conforme necessário */
+  height: 80px; /* Ajuste conforme necessário */
+  display: block;
+  margin: 0 auto 5px;
+  border-radius: 50%; /* Ou outra forma */
+  background-color: #eee; /* Placeholder */
+}
+
+.avatar-option span {
+  font-size: 14px;
+  color: #555;
+}
+
+.avatar-option.selected {
+  border-color: var(--primary-color, #5cb85c);
+  transform: scale(1.05);
+}
+
+/* Temas de Cores (Variáveis CSS) */
+:root {
+  --default-primary-color: #5cb85c; /* Verde padrão */
+  --pau-brasil-color: #ff0019; /* Tom de vermelho */
+  --castanheira-color: #8B4513; /* Tom de marrom */
+  --peroba-rosa-color: #FF69B4; /* Tom de rosa */
+}
+
+body.theme-pau-brasil {
+  --primary-color: var(--pau-brasil-color);
+}
+
+body.theme-castanheira {
+  --primary-color: var(--castanheira-color);
+}
+
+body.theme-peroba-rosa {
+  --primary-color: var(--peroba-rosa-color);
+}
+
+/* Estilos para a página principal (placeholder) */
+#main-app {
+  display: none; /* Inicialmente oculta */
+}
+
+/* Estilos para a tela de cadastro de ações (placeholder) */
+#cadastro-acoes {
+  display: none; /* Inicialmente oculta */
+}
+
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+}
+
+
+
+
+/* Estilos do Menu de Navegação */
+nav.main-nav {
+  background-color: var(--primary-color, #4CAF50); /* Cor baseada no tema */
+  padding: 10px 0;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+nav.main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+nav.main-nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+nav.main-nav ul li a:hover,
+nav.main-nav ul li a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+
+
+/* Estilos da Seção de Perfil */
+#perfil .profile-content {
+  display: flex;
+  align-items: flex-start; /* Alinha itens no topo */
+  gap: 20px; /* Espaço entre avatar e informações */
+}
+
+#perfil .profile-avatar {
+  text-align: center;
+  flex-basis: 120px; /* Largura fixa para a área do avatar */
+  flex-shrink: 0;
+}
+
+#perfil .profile-avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #eee; /* Placeholder */
+  margin-bottom: 5px;
+  border: 3px solid var(--primary-color, #ccc);
+}
+
+#perfil .profile-avatar span#avatar-stage {
+  display: block;
+  font-size: 0.9em;
+  color: #666;
+  font-style: italic;
+}
+
+#perfil .profile-info {
+  flex-grow: 1; /* Ocupa o espaço restante */
+}
+
+#perfil .profile-info h3 {
+  margin-top: 0;
+  color: var(--primary-color, #333);
+}
+
+#perfil .profile-info p {
+  margin: 5px 0;
+}
+
+#perfil #edit-bio-btn,
+#perfil #save-bio-btn,
+#perfil #cancel-bio-btn {
+  background-color: var(--primary-color, #5cb85c);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 5px;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+}
+
+#perfil #edit-bio-btn:hover,
+#perfil #save-bio-btn:hover,
+#perfil #cancel-bio-btn:hover {
+  opacity: 0.9;
+}
+
+#perfil #cancel-bio-btn {
+  background-color: #aaa;
+}
+
+#perfil #edit-bio-area textarea {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+
+
+
+/* Estilos da Seção de Destaques */
+#destaques .destaques-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap; /* Para telas menores */
+  gap: 20px;
+  margin-top: 15px;
+}
+
+#destaques .destaque-item {
+  text-align: center;
+  flex-basis: 150px; /* Largura base para cada item */
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+#destaques .destaque-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #eee; /* Placeholder */
+  margin-bottom: 10px;
+  border: 3px solid var(--primary-color, #ccc);
+}
+
+#destaques .destaque-item .destaque-username {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+#destaques .destaque-item .destaque-tree-count {
+  font-size: 0.9em;
+  color: #666;
+}

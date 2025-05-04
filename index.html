@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reflorestamento App</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- Seção de Cadastro/Login (Inicialmente visível) -->
+    <div id="cadastro-container" class="container">
+      <h1>Cadastro</h1>
+      <form id="cadastro-form">
+        <div class="form-group">
+          <label for="username">Usuário:</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Senha:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+
+        <h2>Escolha sua Árvore Avatar:</h2>
+        <div class="avatar-selection">
+          <div class="avatar-option" data-tree="pau-brasil">
+            <img
+              src="assets/images/pau-brasil-placeholder.png"
+              alt="Pau-Brasil"
+            />
+            <span>Pau-Brasil</span>
+          </div>
+          <div class="avatar-option" data-tree="castanheira">
+            <img
+              src="assets/images/castanheira-placeholder.png"
+              alt="Castanheira"
+            />
+            <span>Castanheira</span>
+          </div>
+          <div class="avatar-option" data-tree="peroba-rosa">
+            <img
+              src="assets/images/peroba-rosa-placeholder.png"
+              alt="Peroba-Rosa"
+            />
+            <span>Peroba-Rosa</span>
+          </div>
+        </div>
+        <input type="hidden" id="selected-avatar" name="selected-avatar" />
+
+        <button type="submit">Cadastrar</button>
+      </form>
+      <!-- Adicionar link/botão para tela de Login se necessário -->
+    </div>
+
+    <!-- Área Principal da Aplicação (Inicialmente oculta) -->
+    <div id="main-app" style="display: none">
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#perfil" id="nav-perfil" class="nav-link">Perfil</a></li>
+          <li>
+            <a href="#cadastro-acoes" id="nav-cadastro-acoes" class="nav-link"
+              >Cadastrar Ações</a
+            >
+          </li>
+          <li>
+            <a href="#relatorio" id="nav-relatorio" class="nav-link"
+              >Relatório</a
+            >
+          </li>
+          <li>
+            <a href="#destaques" id="nav-destaques" class="nav-link"
+              >Destaques</a
+            >
+          </li>
+          <!-- Adicionar link para Logout/Sair -->
+          <li><a href="#logout" id="nav-logout" class="nav-link">Sair</a></li>
+        </ul>
+      </nav>
+
+      <div id="app-content">
+        <section
+          id="perfil"
+          class="app-section container"
+          style="display: none"
+        >
+          <h2>Perfil do Usuário</h2>
+          <div class="profile-content">
+            <div class="profile-avatar">
+              <img id="profile-avatar-img" src="" alt="Avatar do Usuário" />
+              <span id="avatar-stage"></span>
+              <!-- Estágio da árvore -->
+            </div>
+            <div class="profile-info">
+              <h3 id="profile-username">Nome do Usuário</h3>
+              <p>
+                <strong>Árvore:</strong>
+                <span id="profile-tree-type">Tipo</span>
+              </p>
+              <p>
+                <strong>Árvores Plantadas:</strong>
+                <span id="profile-tree-count">0</span>
+              </p>
+              <h4>Bio:</h4>
+              <p id="profile-bio-text">Esta é a bio do usuário...</p>
+              <button id="edit-bio-btn">Editar Bio</button>
+              <div id="edit-bio-area" style="display: none">
+                <textarea
+                  id="edit-bio-textarea"
+                  rows="4"
+                  style="width: 95%"
+                ></textarea>
+                <button id="save-bio-btn">Salvar Bio</button>
+                <button id="cancel-bio-btn">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Seção Cadastro de Ações (Conteúdo será carregado aqui) -->
+        <section
+          id="cadastro-acoes"
+          class="app-section container"
+          style="display: none"
+        >
+          <h2>Cadastrar Ação de Reflorestamento</h2>
+          <form id="cadastro-acoes-form">
+            <div class="form-group">
+              <label for="quantidade-arvores"
+                >Quantidade de Árvores Plantadas:</label
+              >
+              <input
+                type="number"
+                id="quantidade-arvores"
+                name="quantidade-arvores"
+                min="1"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="especie-arvore">Espécie da Árvore:</label>
+              <select id="especie-arvore" name="especie-arvore" required>
+                <option value="" disabled selected>Selecione a espécie</option>
+                <option value="ipe">Ipê</option>
+                <option value="angico">Angico</option>
+                <option value="aroeira">Aroeira</option>
+                <option value="jequitiba">Jequitibá</option>
+                <option value="peroba-campo">Peroba do Campo</option>
+              </select>
+            </div>
+            <button type="submit">Registrar Plantio</button>
+          </form>
+          <div
+            id="cadastro-acoes-feedback"
+            style="margin-top: 15px; color: green"
+          ></div>
+        </section>
+
+        <!-- Seção Relatório (Conteúdo será carregado aqui) -->
+        <section
+          id="relatorio"
+          class="app-section container"
+          style="display: none"
+        >
+          <h2>Relatório de Reflorestamento</h2>
+          <form id="relatorio-form">
+            <div class="form-group">
+              <label for="busca-usuario">Buscar por Usuário:</label>
+              <input
+                type="text"
+                id="busca-usuario"
+                name="busca-usuario"
+                placeholder="(Funcionalidade futura)"
+                disabled
+              />
+            </div>
+            <div class="form-group">
+              <label for="busca-especie">Buscar por Espécie:</label>
+              <select id="busca-especie" name="busca-especie">
+                <option value="">Todas</option>
+                <!-- Opção para buscar todas -->
+                <option value="ipe">Ipê</option>
+                <option value="angico">Angico</option>
+                <option value="aroeira">Aroeira</option>
+                <option value="jequitiba">Jequitibá</option>
+                <option value="peroba-campo">Peroba do Campo</option>
+              </select>
+            </div>
+            <button type="submit">Buscar Registros</button>
+          </form>
+          <div id="relatorio-resultados" style="margin-top: 20px">
+            <!-- Resultados da busca serão exibidos aqui -->
+            <p><i>Faça uma busca para ver os registros.</i></p>
+          </div>
+        </section>
+
+        <!-- Seção Destaques (Conteúdo será carregado aqui) -->
+        <section
+          id="destaques"
+          class="app-section container"
+          style="display: none"
+        >
+          <h2>Destaques do Reflorestamento</h2>
+          <p>Os 3 usuários que mais contribuíram:</p>
+          <div id="destaques-list" class="destaques-container">
+            <!-- Lista de usuários destaque será carregada aqui -->
+            <p><i>Carregando destaques...</i></p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
